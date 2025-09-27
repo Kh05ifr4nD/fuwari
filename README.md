@@ -1,22 +1,20 @@
-# 🍥 Fuwari (Deno + Astro)
+# 🍥 Fuwari-typ (Astro & Deno -> Typst)
 
 [![Deno >= 2](https://img.shields.io/badge/deno-%3E%3D2.0-black?logo=deno)](https://deno.com)
 [![Astro](https://img.shields.io/badge/astro-5.x-orange?logo=astro)](https://astro.build)
+[![Typst](https://img.shields.io/website?down_message=offline&label=typst.app&up_color=239dad&up_message=online&url=https%3A%2F%2Ftypst.app)](https://typst.app/)
 
-A modern blog theme built with Astro and powered by Deno 2 tasks. This fork ships with a Deno-first toolchain, simplified i18n, and a few UX tweaks.
+A modern Typst blog instance built with Astro and powered by Deno 2. This fork ships with a Deno‑first toolchain, Typst‑first content pipeline.
 
-[Live Demo](https://fuwari.vercel.app)
-
-## ✨ What’s Included
+## What’s Included
 
 - Deno 2 based dev/build workflow (no Node/pnpm required)
 - Smooth animations, light/dark mode, theme color and banner
 - Responsive layout with Pagefind search and RSS
-- Typst HTML integration with reusable components (admonitions, GitHub repo card, Expressive Code)
-- “Timeline” page (formerly Archive) at `/timeline/`
-- i18n reduced to English `en` and Simplified Chinese `zh_CN`
+- Typst‑first content with reusable components (admonitions, GitHub repo card, Expressive Code)
+- I18n including English `en` and Simplified Chinese `zh_CN`
 
-## 🚀 Getting Started
+## Getting Started
 
 1) Clone or generate a new repository from this template.
 
@@ -37,16 +35,42 @@ A modern blog theme built with Astro and powered by Deno 2 tasks. This fork ship
 - `deno task build`
 - `deno task preview`
 
-## 🧱 Content & Features
+## Content & Features (Typst‑first)
 
 - Posts support a cover image (`image`) and typical metadata (`title`, `published`, `tags`, `category`, `draft`)
-- Typst HTML pages include:
-  - Admonitions and GitHub Card via rehype components
-  - Expressive Code for enhanced code blocks
+- Typst targets
+  - `.html.typ`: renders to HTML and participates in the rehype pipeline/components
+  - `.svg.typ`: renders to SVG for complex layouts/math
+- Built‑in Typst helpers (see `src/content/typ/fuwari-html.typ`)
+  - `#fw_note[...]`, `#fw_tip[...]`, `#fw_warning[...]`, `#fw_caution[...]`, `#fw_important[...]`
+  - `#github("owner/repo")` → GitHub repo card
+  - `#fw_ec(lang, code)` / Expressive Code integration
+  - `#fw_tfile(path, embed, alt)` / `#fw_spoiler[...]`
+  - Images are zoomable; videos/iframes have theme‑colored borders
 - Media (images, iframes, video): rounded corners and theme-colored borders around videos/iframes
-- GitHub Card: theme-colored border, loads repo stats at runtime
+- GitHub Card: theme‑colored border, loads repo stats at runtime
 
-## 🔧 Commands (Deno tasks)
+### Typst frontmatter example
+
+Typst HTML posts declare metadata via a `#metadata(( ... ))` block:
+
+```typst
+#let desc = [Short description here]
+#metadata((
+  title: "My Post",
+  published: "2025-09-21",
+  description: desc,
+  tags: ("Typst", "Fuwari"),
+  category: "Demo",
+  image: "./cover.jpg",
+))<frontmatter>
+```
+
+### Markdown removed
+
+This fork removes Markdown pages and remark plugins to keep the pipeline focused on Typst. If you need Markdown support, consider the upstream template or re‑enable remark/MD collections on your own.
+
+## Commands (Deno tasks)
 
 | Command                      | Description                                      |
 | --------------------------- | ------------------------------------------------ |
@@ -59,7 +83,7 @@ A modern blog theme built with Astro and powered by Deno 2 tasks. This fork ship
 | `deno task format`         | Format with Biome                                |
 | `deno task new-post <name>`| Scaffold a new post                               |
 
-## 🧪 CI
+## CI
 
 - Deno CI (`.github/workflows/deno-ci.yml`)
   - Deno 2, type-check + lint + build, uploads `dist` as artifact
@@ -68,12 +92,12 @@ A modern blog theme built with Astro and powered by Deno 2 tasks. This fork ship
 - Dependabot (`.github/dependabot.yml`)
   - npm and GitHub Actions updates
 
-## 🌐 Routing Notes
+## Routing Notes
 
 - Timeline: `/timeline/` (replaces `/archive/`)
 - Tag links: `/timeline/?tag=...`
 - Category links: `/timeline/?category=...`
 
-## 📄 License
+## License
 
 MIT. See `LICENSE`. Copyright © 2024 saicaca, 2025 Kh05ifr4nD.

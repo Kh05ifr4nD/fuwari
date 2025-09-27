@@ -1,0 +1,105 @@
+---
+import type { CollectionEntry } from "astro:content";
+// import path from "node:path";
+import { Icon } from "astro-icon/components";
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
+import type { RemarkFrontmatter } from "../utils/typst-stats.ts";
+// import { getDir } from "../utils/url-utils";
+import ImageWrapper from "./misc/ImageWrapper.astro";
+import PostMetadata from "./PostMeta.astro";
+
+interface Props {
+  class?: string;
+  entry: CollectionEntry<"posts">;
+  title: string;
+  url: string;
+  published: Date;
+  updated?: Date;
+  tags: string[];
+  category: string | null;
+  image: string;
+  description: unknown;
+  draft: boolean;
+  style: string;
+}
+const { entry, title, url, published, updated, tags, category, image, description, style } =
+  Astro.props;
+const className = Astro.props.class;
+
+const hasCover = image !== undefined && image !== null && image !== "";
+
+const { deriveContentBasePath } = await import("../utils/url-utils.ts");
+const basePath = deriveContentBasePath(entry.id, entry.filePath);
+
+const coverWidth = "28%";
+
+let remarkPluginFrontmatter: RemarkFrontmatter = { words: 0, minutes: 0, excerpt: "" };
+const { computeTypstStatsIfMissing } = await import("../utils/typst-stats.ts");
+const { coerceDescriptionToString } = await import("../utils/desc-utils.ts");
+remarkPluginFrontmatter = await computeTypstStatsIfMissing(entry, remarkPluginFrontmatter);
+const descStr = coerceDescriptionToString(description);
+const safeDescription: string = descStr || (remarkPluginFrontmatter?.excerpt ?? "");
+---
+<div class:list={["card-base flex flex-col-reverse md:flex-col w-full relative", className]} style={style}>
+    <div class:list={["inset-md relative", {"w-full md:w-[calc(100%_-_52px_-_12px)]": !hasCover, "w-full md:w-[calc(100%_-_var(--coverWidth)_-_12px)]": hasCover}]}>
+        <a href={url} class="title-link group">
+            {title}
+            <Icon class="inline icon-2xl text-[var(--primary)] md:hidden translate-y-0.5 absolute" name="material-symbols:chevron-right-rounded" ></Icon>
+            <Icon class="text-[var(--primary)] icon-2xl transition hidden md:inline absolute translate-y-0.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0" name="material-symbols:chevron-right-rounded"></Icon>
+        </a>
+
+        <!-- metadata -->
+        <PostMetadata published={published} updated={updated} tags={tags} category={category} hideTagsForMobile={true} hideUpdateDate={true} class="mb-4"></PostMetadata>
+
+        <!-- description -->
+        <div class:list={["transition text-75 mb-3.5 pr-4", {"line-clamp-2 md:line-clamp-1": !safeDescription}]}>
+            { safeDescription }
+        </div>
+
+        <!-- word count and read time  -->
+        <div class="meta-subtle-row">
+            <div>
+                {remarkPluginFrontmatter.words} {" " + i18n(remarkPluginFrontmatter.words === 1 ? I18nKey.wordCount : I18nKey.wordsCount)}
+            </div>
+            <div>|</div>
+            <div>
+                {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
+            </div>
+        </div>
+
+    </div>
+
+    {hasCover && <a href={url} aria-label={title}
+                    class:list={["group",
+                        "max-h-[20vh] md:max-h-none mx-4 mt-4 -mb-2 md:mb-0 md:mx-0 md:mt-0",
+                        "md:w-[var(--coverWidth)] relative md:absolute md:top-3 md:bottom-3 md:right-3 radius-xl overflow-hidden active:scale-95"
+                    ]} >
+        <div class="absolute pointer-events-none z-10 w-full h-full group-hover:bg-black/30 group-active:bg-black/50 transition"></div>
+        <div class="absolute pointer-events-none z-20 w-full h-full flex items-center justify-center ">
+            <Icon name="material-symbols:chevron-right-rounded"
+                  class="transition opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 text-white text-5xl">
+            </Icon>
+        </div>
+        <ImageWrapper src={image} basePath={basePath} alt="Cover Image of the Post"
+                  class="w-full h-full">
+        </ImageWrapper>
+    </a>}
+
+    {!hasCover &&
+        <a href={url} aria-label={title} class="!hidden md:!flex btn-regular w-[3.25rem]
+         absolute right-3 top-3 bottom-3 radius-xl bg-[var(--btn-regular-bg)]
+         hover:bg-[var(--btn-regular-bg-hover)] active:bg-[var(--btn-regular-bg-active)] active:scale-95
+        ">
+            
+            <Icon name="material-symbols:chevron-right-rounded"
+                  class="transition text-[var(--primary)] text-4xl mx-auto">
+            </Icon>
+        </a>
+    }
+</div>
+<div class="transition border-t-[1px] border-dashed mx-6 border-[var(--line-divider)] last:border-t-0 md:hidden"></div>
+
+<style define:vars={{coverWidth}}>
+</style>
+

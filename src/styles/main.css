@@ -1,0 +1,15 @@
+/* Minimal base only: keep resets and global defaults lightweight. */
+
+/* Compatibility: Tailwind preflight sets only -webkit-text-size-adjust. */
+html, :host { text-size-adjust: 100%; }
+
+/* Global UI font */
+html, body {
+  font-family: "Noto Sans SC", "Source Han Sans SC", "Source Han Sans", "PingFang SC", "Microsoft YaHei", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Smooth transitions on common text elements */
+h1, h2, h3, h4, h5, h6, p, a, span, li, ul, ol, blockquote, code, pre, strong { @apply transition; }
+
+/* Selection color */
+::selection { background-color: var(--selection-bg) }

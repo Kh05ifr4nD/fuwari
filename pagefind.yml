@@ -1,0 +1,4 @@
+exclude_selectors:
+  - ".search-panel"
+  - "[data-pagefind-ignore]"
+  - "#search-panel"

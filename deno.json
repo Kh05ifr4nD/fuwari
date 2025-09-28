@@ -23,14 +23,14 @@
   },
   "nodeModulesDir": "auto",
   "tasks": {
-    "astro": "deno run -A npm:astro@5.13.8",
-    "build": "deno run -A npm:astro@5.13.8 build && deno run -A npm:pagefind@1.4.0 --site dist",
-    "check": "deno run -A npm:astro@5.13.8 check",
-    "dev": "deno run -A npm:astro@5.13.8 dev",
+    "astro": "deno run -A npm:astro",
+    "build": "deno run -A npm:astro build && deno run -A npm:pagefind --site dist",
+    "check": "deno run -A npm:astro check",
+    "dev": "deno run -A npm:astro dev",
     "format": "deno run -A npm:@biomejs/biome format --write",
     "lint": "deno run -A npm:@biomejs/biome check --write && deno lint --fix",
     "new-post": "deno run -A scripts/new-post.ts",
-    "preview": "deno run -A npm:astro@5.13.8 preview",
-    "type-check": "deno run -A npm:typescript@5.9.2/tsc --noEmit --isolatedDeclarations"
+    "preview": "deno run -A npm:astro preview",
+    "type-check": "deno run -A npm:typescript/tsc --noEmit --isolatedDeclarations"
   }
 }

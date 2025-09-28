@@ -72,7 +72,6 @@ if (title) {
 
 const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
 
-// const siteLang = siteConfig.lang.replace('_', '-')
 if (!lang) {
   lang = `${siteConfig.lang}`;
 }
@@ -87,9 +86,7 @@ const bannerOffset = bannerOffsetByPosition[siteConfig.banner.position || "cente
 ---
 
 <!DOCTYPE html>
-<html lang={siteLang} class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px]"
-	  data-overlayscrollbars-initialize
->
+<html lang={siteLang} class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px]">
 	<head>
 
 		<title>{pageTitle}</title>
@@ -161,10 +158,9 @@ const bannerOffset = bannerOffsetByPosition[siteConfig.banner.position || "cente
 
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
-	</head>
-	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
-		  data-overlayscrollbars-initialize
-	>
+    </head>
+    <body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
+    >
 		<ConfigCarrier></ConfigCarrier>
 		<slot />
 
@@ -178,10 +174,6 @@ const bannerOffset = bannerOffsetByPosition[siteConfig.banner.position || "cente
 	'banner-height-home': `${BANNER_HEIGHT_HOME}vh`,
 	'banner-height': `${BANNER_HEIGHT}vh`,
 }}>
-/* Global CSS moved into styles/main.css; keep only dynamic CSS variables here. */
-
-/* Typst styles moved to styles/typst.css to reduce inline CSS size */
-
 </style>
 
 
@@ -299,6 +291,28 @@ function initCustomScrollbar() {
 
 }
 
+function removeBodyTabIndex() {
+    try {
+        const b = document.body;
+        if (b && b.hasAttribute('tabindex')) b.removeAttribute('tabindex');
+    } catch { /* noop */ }
+}
+
+function observeBodyTabIndex() {
+    try {
+        const b = document.body;
+        if (!b) return;
+        const obs = new MutationObserver((recs) => {
+            for (const r of recs) {
+                if (r.type === 'attributes' && r.attributeName === 'tabindex') {
+                    removeBodyTabIndex();
+                }
+            }
+        });
+        obs.observe(b, { attributes: true, attributeFilter: ['tabindex'] });
+    } catch { /* noop */ }
+}
+
 function showBanner() {
 	if (!siteConfig.banner.enable) return;
 
@@ -315,8 +329,10 @@ function init() {
 	// disableAnimation()()		// TODO
 	loadTheme();
 	loadHue();
-	initCustomScrollbar();
-	showBanner();
+    initCustomScrollbar();
+    removeBodyTabIndex();
+    observeBodyTabIndex();
+    showBanner();
 }
 
 /* Load settings when entering the site */
@@ -352,7 +368,7 @@ const setup = () => {
 			navbar.classList.add('navbar-hidden')
 		}
 	})
-	window.swup.hooks.on('content:replace', initCustomScrollbar)
+    window.swup.hooks.on('content:replace', () => { initCustomScrollbar(); removeBodyTabIndex(); })
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
 		// change banner height immediately when a link is clicked
 		const bodyElement = document.querySelector('body')
@@ -374,13 +390,14 @@ const setup = () => {
 			toc.classList.add('toc-not-ready')
 		}
 	});
-	window.swup.hooks.on('page:view', () => {
-		// hide the temp high element when the transition is done
-		const heightExtend = document.getElementById('page-height-extend')
-		if (heightExtend) {
-			heightExtend.classList.remove('hidden')
-		}
-	});
+    window.swup.hooks.on('page:view', () => {
+        // hide the temp high element when the transition is done
+        const heightExtend = document.getElementById('page-height-extend')
+        if (heightExtend) {
+            heightExtend.classList.remove('hidden')
+        }
+        removeBodyTabIndex();
+    });
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {
 			const heightExtend = document.getElementById('page-height-extend')
@@ -393,8 +410,10 @@ const setup = () => {
             if (toc) {
                 toc.classList.remove('toc-not-ready')
             }
+            // Ensure <body> doesn't keep a tabindex from 3rd-party focus management
+            removeBodyTabIndex();
         }, 200)
-	});
+    });
 }
 if (window?.swup?.hooks) {
 	setup()

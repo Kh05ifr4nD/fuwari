@@ -28,6 +28,10 @@ export default defineConfig({
   site: "https://fuwari.vercel.app/",
   base: "/",
   trailingSlash: "ignore",
+  image: {
+    // allow optimizing remote placeholder images used in docs
+    domains: ["placehold.co"],
+  },
   integrations: [
     tailwind({ nesting: true }),
     typst({ target: typstTarget, options: typstOptions }),
@@ -43,7 +47,6 @@ export default defineConfig({
       updateBodyClass: false,
       globalInstance: true,
     }),
-    // Reduce icon bundle size: include only the icons actually used
     icon({
       // Only include required icons to minimize bundle size
       include: {
@@ -83,7 +86,6 @@ export default defineConfig({
     sitemap(),
   ],
   markdown: {
-    // Typst-only: no remark (Markdown) plugins needed
     remarkPlugins: [],
     rehypePlugins: [
       // Normalize Typst HTML before slugging/autolinking

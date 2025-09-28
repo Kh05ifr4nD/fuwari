@@ -15,8 +15,6 @@
   ),
 )<frontmatter>
 
-= Typst + Fuwari Plugins (HTML Target)
-
 This page demonstrates using original Fuwari components in Typst when targeting HTML.
 
 == Admonitions

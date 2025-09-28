@@ -58,7 +58,7 @@ Delimited code block with syntax highlighting:
 #fw_ol[
   #fw_li[First, get these ingredients:
     #fw_ul[
-      #fw_li[#fw_img("https://placehold.co/800x480/png", "An exemplary image", "100%")]
+      #fw_li[#fw_img("https://placehold.co/800x480/png", "An exemplary illustration", "100%")]
       #fw_li[#fw_tfile("src/content/posts/typst-math.svg.typ", "inline", "typst-math")]
       #fw_li[lentils]
     ]
@@ -73,7 +73,7 @@ Here's a link to #fw_a("http://foo.bar")[a website], to a #fw_a("local-doc.html"
 
 Images:
 
-#fw_img("https://placehold.co/800x480/png", "An exemplary image", "100%")
+#fw_img("https://placehold.co/800x480/png", "An exemplary illustration", "100%")
 
 Display math example (use a Typst SVG file for true rendering):
 

@@ -6,8 +6,8 @@
     "npm:@astrojs/check@~0.9.4": "0.9.4_typescript@5.9.2",
     "npm:@astrojs/rss@^4.0.12": "4.0.12",
     "npm:@astrojs/sitemap@^3.6.0": "3.6.0",
-    "npm:@astrojs/svelte@7.2.0": "7.2.0_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_svelte@5.39.6__acorn@8.15.0_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3",
-    "npm:@astrojs/tailwind@^6.0.2": "6.0.2_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_tailwindcss@3.4.17__postcss@8.5.6_postcss@8.5.6_typescript@5.9.2",
+    "npm:@astrojs/svelte@7.2.0": "7.2.0_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_svelte@5.39.6__acorn@8.15.0_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3",
+    "npm:@astrojs/tailwind@^6.0.2": "6.0.2_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_tailwindcss@3.4.17__postcss@8.5.6_postcss@8.5.6_typescript@5.9.2",
     "npm:@astrojs/ts-plugin@^1.10.4": "1.10.4",
     "npm:@biomejs/biome@*": "2.2.4",
     "npm:@expressive-code/core@0.41.3": "0.41.3_postcss@8.5.6",
@@ -23,7 +23,7 @@
     "npm:@iconify-json/fa6-regular@^1.2.4": "1.2.4",
     "npm:@iconify-json/fa6-solid@^1.2.4": "1.2.4",
     "npm:@iconify-json/material-symbols@^1.2.39": "1.2.39",
-    "npm:@iconify/svelte@^4.2.0": "4.2.0_svelte@5.39.6__acorn@8.15.0",
+    "npm:@iconify/svelte@^5.0.2": "5.0.2_svelte@5.39.6__acorn@8.15.0",
     "npm:@myriaddreamin/typst-ts-node-compiler@~0.6.1-rc3": "0.6.1-rc3",
     "npm:@myriaddreamin/typst-ts-renderer@~0.6.1-rc3": "0.6.1-rc3",
     "npm:@myriaddreamin/typst.ts@~0.6.1-rc3": "0.6.1-rc3_@myriaddreamin+typst-ts-renderer@0.6.1-rc3",
@@ -32,13 +32,15 @@
     "npm:@tailwindcss/typography@~0.5.19": "0.5.19_tailwindcss@3.4.17__postcss@8.5.6",
     "npm:@types/hast@^3.0.4": "3.0.4",
     "npm:@types/sanitize-html@^2.16.0": "2.16.0",
-    "npm:astro-expressive-code@~0.41.3": "0.41.3_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2",
+    "npm:astro-expressive-code@~0.41.3": "0.41.3_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2",
     "npm:astro-icon@^1.1.5": "1.1.5",
-    "npm:astro-typst@~0.12.1": "0.12.1_@myriaddreamin+typst-ts-node-compiler@0.6.1-rc3_@myriaddreamin+typst-ts-renderer@0.6.1-rc3_@myriaddreamin+typst.ts@0.6.1-rc3__@myriaddreamin+typst-ts-renderer@0.6.1-rc3_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_cheerio@1.1.2_typescript@5.9.2",
-    "npm:astro@5.13.10": "5.13.10_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3_zod@3.25.76",
+    "npm:astro-typst@~0.12.1": "0.12.1_@myriaddreamin+typst-ts-node-compiler@0.6.1-rc3_@myriaddreamin+typst-ts-renderer@0.6.1-rc3_@myriaddreamin+typst.ts@0.6.1-rc3__@myriaddreamin+typst-ts-renderer@0.6.1-rc3_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_cheerio@1.1.2_typescript@5.9.2",
+    "npm:astro@*": "5.14.1_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3_zod@3.25.76",
+    "npm:astro@5.14.1": "5.14.1_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3_zod@3.25.76",
     "npm:cheerio@^1.1.2": "1.1.2",
     "npm:hastscript@^9.0.1": "9.0.1",
     "npm:overlayscrollbars@^2.12.0": "2.12.0",
+    "npm:pagefind@*": "1.4.0",
     "npm:pagefind@1.4.0": "1.4.0",
     "npm:pagefind@^1.4.0": "1.4.0",
     "npm:photoswipe@^5.4.4": "5.4.4",
@@ -52,7 +54,7 @@
     "npm:sharp@~0.34.4": "0.34.4",
     "npm:svelte@^5.39.6": "5.39.6_acorn@8.15.0",
     "npm:tailwindcss@^3.4.17": "3.4.17_postcss@8.5.6",
-    "npm:typescript@5.9.2": "5.9.2",
+    "npm:typescript@*": "5.9.2",
     "npm:typescript@^5.9.2": "5.9.2",
     "npm:unist-util-visit@5": "5.0.0"
   },
@@ -169,7 +171,7 @@
         "zod"
       ]
     },
-    "@astrojs/svelte@7.2.0_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_svelte@5.39.6__acorn@8.15.0_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3": {
+    "@astrojs/svelte@7.2.0_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_svelte@5.39.6__acorn@8.15.0_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3": {
       "integrity": "sha512-6AbtExkKc+m0tHR7Plf4bd3Myx0FMHmAICFfp4eAlv8IavjFmZMIjosRvm2+1l8MTH80p+cQxQmo/R3K+RvXlw==",
       "dependencies": [
         "@sveltejs/vite-plugin-svelte",
@@ -180,7 +182,7 @@
         "vite"
       ]
     },
-    "@astrojs/tailwind@6.0.2_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_tailwindcss@3.4.17__postcss@8.5.6_postcss@8.5.6_typescript@5.9.2": {
+    "@astrojs/tailwind@6.0.2_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_tailwindcss@3.4.17__postcss@8.5.6_postcss@8.5.6_typescript@5.9.2": {
       "integrity": "sha512-j3mhLNeugZq6A8dMNXVarUa8K6X9AW+QHU9u3lKNrPLMHhOQ0S7VeWhHwEeJFpEK1BTKEUY1U78VQv2gN6hNGg==",
       "dependencies": [
         "astro",
@@ -1394,8 +1396,8 @@
         "@iconify/types"
       ]
     },
-    "@iconify/svelte@4.2.0_svelte@5.39.6__acorn@8.15.0": {
-      "integrity": "sha512-fEl0T7SAPonK7xk6xUlRPDmFDZVDe2Z7ZstlqeDS/sS8ve2uyU+Qa8rTWbIqzZJlRvONkK5kVXiUf9nIc+6OOQ==",
+    "@iconify/svelte@5.0.2_svelte@5.39.6__acorn@8.15.0": {
+      "integrity": "sha512-1iWUT+1veS/QOAzKDG0NPgBtJYGoJqEPwF97voTm8jw6PQ6yU0hL73lEwFoTGMrZmatLvh9cjRBmeSHHaltmrg==",
       "dependencies": [
         "@iconify/types",
         "svelte"
@@ -2476,7 +2478,7 @@
       "integrity": "sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==",
       "bin": true
     },
-    "astro-expressive-code@0.41.3_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2": {
+    "astro-expressive-code@0.41.3_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2": {
       "integrity": "sha512-u+zHMqo/QNLE2eqYRCrK3+XMlKakv33Bzuz+56V1gs8H0y6TZ0hIi3VNbIxeTn51NLn+mJfUV/A0kMNfE4rANw==",
       "dependencies": [
         "astro",
@@ -2491,14 +2493,14 @@
         "@iconify/utils"
       ]
     },
-    "astro-integration-kit@0.19.0_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2": {
+    "astro-integration-kit@0.19.0_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2": {
       "integrity": "sha512-ftDrem91kJZoenhpJJfRtB29D/bmNglEp2oOXqF1uL5yODZauGIy3tDgIbec0UEMp6tNuky4tfWseUXpej5Dng==",
       "dependencies": [
         "astro",
         "pathe@1.1.2"
       ]
     },
-    "astro-typst@0.12.1_@myriaddreamin+typst-ts-node-compiler@0.6.1-rc3_@myriaddreamin+typst-ts-renderer@0.6.1-rc3_@myriaddreamin+typst.ts@0.6.1-rc3__@myriaddreamin+typst-ts-renderer@0.6.1-rc3_astro@5.13.10__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_cheerio@1.1.2_typescript@5.9.2": {
+    "astro-typst@0.12.1_@myriaddreamin+typst-ts-node-compiler@0.6.1-rc3_@myriaddreamin+typst-ts-renderer@0.6.1-rc3_@myriaddreamin+typst.ts@0.6.1-rc3__@myriaddreamin+typst-ts-renderer@0.6.1-rc3_astro@5.14.1__typescript@5.9.2__vite@6.3.6___picomatch@4.0.3__zod@3.25.76_cheerio@1.1.2_typescript@5.9.2": {
       "integrity": "sha512-ELnhOpvcne77S+ny+RFQr4dbGzT5EnaOkgXT8Qmd3OVWN72Zc44T0SO/cKzhSo1EmjW7okx850rWwlfu3YdSUA==",
       "dependencies": [
         "@myriaddreamin/typst-ts-node-compiler",
@@ -2513,8 +2515,8 @@
         "unified"
       ]
     },
-    "astro@5.13.10_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3_zod@3.25.76": {
-      "integrity": "sha512-PgIrIYvrR7fCoSPPt1sGlpoYK/FNil1BwKazND1DyaZC7SbWLi9hdIHM3ApdrL2SWK7oiADRPw7cTn80UyDWqA==",
+    "astro@5.14.1_typescript@5.9.2_vite@6.3.6__picomatch@4.0.3_zod@3.25.76": {
+      "integrity": "sha512-gPa8NY7/lP8j8g81iy8UwANF3+aukKRWS68IlthZQNgykpg80ne6lbHOp6FErYycxQ1TUhgEfkXVDQZAoJx8Bg==",
       "dependencies": [
         "@astrojs/compiler",
         "@astrojs/internal-helpers",
@@ -2680,8 +2682,8 @@
     "base64-js@1.5.1": {
       "integrity": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA=="
     },
-    "baseline-browser-mapping@2.8.7": {
-      "integrity": "sha512-bxxN2M3a4d1CRoQC//IqsR5XrLh0IJ8TCv2x6Y9N0nckNz/rTjZB3//GGscZziZOxmjP55rzxg/ze7usFI9FqQ==",
+    "baseline-browser-mapping@2.8.8": {
+      "integrity": "sha512-be0PUaPsQX/gPWWgFsdD+GFzaoig5PXaUC1xLkQiYdDnANU8sMnHoQd8JhbJQuvTWrWLyeFN9Imb5Qtfvr4RrQ==",
       "bin": true
     },
     "bcp-47-match@2.0.3": {
@@ -3341,8 +3343,8 @@
       ],
       "bin": true
     },
-    "electron-to-chromium@1.5.224": {
-      "integrity": "sha512-kWAoUu/bwzvnhpdZSIc6KUyvkI1rbRXMT0Eq8pKReyOyaPZcctMli+EgvcN1PAvwVc7Tdo4Fxi2PsLNDU05mdg=="
+    "electron-to-chromium@1.5.225": {
+      "integrity": "sha512-Oiv6+nGcMg0xuSUeYumk+eE0pDk0PuQ6Gnz16pErrPtlitaFZxq95hUtvGRg90kcJ/AdsM+AW5VkVUl3fGk+SQ=="
     },
     "emmet@2.4.11": {
       "integrity": "sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==",
@@ -7860,7 +7862,7 @@
         "npm:@iconify-json/fa6-regular@^1.2.4",
         "npm:@iconify-json/fa6-solid@^1.2.4",
         "npm:@iconify-json/material-symbols@^1.2.39",
-        "npm:@iconify/svelte@^4.2.0",
+        "npm:@iconify/svelte@^5.0.2",
         "npm:@myriaddreamin/typst-ts-node-compiler@~0.6.1-rc3",
         "npm:@myriaddreamin/typst-ts-renderer@~0.6.1-rc3",
         "npm:@myriaddreamin/typst.ts@~0.6.1-rc3",
@@ -7872,7 +7874,7 @@
         "npm:astro-expressive-code@~0.41.3",
         "npm:astro-icon@^1.1.5",
         "npm:astro-typst@~0.12.1",
-        "npm:astro@5.13.10",
+        "npm:astro@5.14.1",
         "npm:cheerio@^1.1.2",
         "npm:hastscript@^9.0.1",
         "npm:overlayscrollbars@^2.12.0",

@@ -70,7 +70,15 @@
 
 // Void/self-closing like elements
 #let fw_img(src, alt, width) = {
-  html.elem("img", attrs: (src: src, alt: alt, width: width))
+  // Emit custom element that our rehype-components upgrades to an optimized image
+  html.elem(
+    "timg",
+    attrs: (
+      src: src,
+      alt: alt,
+      width: width,
+    ),
+  )
 }
 #let fw_hr() = html.elem("hr")
 

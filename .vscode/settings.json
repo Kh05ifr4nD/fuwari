@@ -1,6 +1,4 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "biomejs.biome",
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
@@ -13,14 +11,16 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
+  "deno.config": "deno.json",
+  "deno.enable": true,
+  "deno.suggest.imports.hosts": {
+    "https://deno.land": true,
+    "jsr:": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit"
   },
-  "frontMatter.dashboard.openOnStart": false,
-  "deno.enable": true,
-  "deno.config": "deno.json",
-  "deno.suggest.imports.hosts": {
-    "jsr:": true,
-    "https://deno.land": true
-  }
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "frontMatter.dashboard.openOnStart": false
 }

@@ -9,6 +9,7 @@ const sortedPostsList = await getSortedPostsList();
 ---
 
 <MainGridLayout title={i18n(I18nKey.timeline)}>
+    <h1 class="sr-only">{i18n(I18nKey.timeline)}</h1>
     <TimelinePanel sortedPosts={sortedPostsList} client:only="svelte"></TimelinePanel>
 </MainGridLayout>
 

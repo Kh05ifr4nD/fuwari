@@ -1,4 +1,4 @@
-= About
+= Fuwari-typ
 
 This is the demo site for #link("https://github.com/saicaca/fuwari")[Fuwari].
 

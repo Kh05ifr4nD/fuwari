@@ -79,9 +79,9 @@ const jsonLd = {
                 </div>
             </div>
 
-            <!-- title -->
+            <!-- title as main heading for a11y -->
             <div class="relative onload-animation">
-                <div
+                <h1
                     data-pagefind-body data-pagefind-weight="10" data-pagefind-meta="title"
                     class="transition w-full block font-bold mb-3
                     text-3xl md:text-[2.25rem]/[2.75rem]
@@ -90,7 +90,7 @@ const jsonLd = {
                     before:absolute before:top-[0.75rem] before:left-[-1.125rem]
                 ">
                     {entry.data.title}
-                </div>
+                </h1>
             </div>
 
             <!-- metadata -->
@@ -108,7 +108,7 @@ const jsonLd = {
             <!-- always show cover as long as it has one -->
 
             {entry.data.image &&
-                <ImageWrapper id="post-cover" src={entry.data.image} basePath={basePath} class="mb-8 radius-xl banner-container onload-animation"/>
+                <ImageWrapper id="post-cover" src={entry.data.image} basePath={basePath} priority={true} class="mb-8 radius-xl banner-container onload-animation"/>
             }
 
 
@@ -122,25 +122,31 @@ const jsonLd = {
     </div>
 
     <div class="flex flex-col md:flex-row justify-between mb-4 gap-4 overflow-hidden w-full">
-        <a href={entry.data.nextSlug ? getPostUrlBySlug(entry.data.nextSlug) : "#"}
-           class:list={["w-full font-bold overflow-hidden active:scale-95", {"pointer-events-none": !entry.data.nextSlug}]}>
-            {entry.data.nextSlug && <div class="btn-card radius-xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-start gap-4" >
-                <Icon name="material-symbols:chevron-left-rounded" class="icon-2xl text-[var(--primary)]" />
-                <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-75">
-                    {entry.data.nextTitle}
+        {entry.data.nextSlug ? (
+            <a href={getPostUrlBySlug(entry.data.nextSlug)} class="w-full font-bold overflow-hidden active:scale-95">
+                <div class="btn-card radius-xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-start gap-4" >
+                    <Icon name="material-symbols:chevron-left-rounded" class="icon-2xl text-[var(--primary)]" />
+                    <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-75">
+                        {entry.data.nextTitle}
+                    </div>
                 </div>
-            </div>}
-        </a>
+            </a>
+        ) : (
+            <div class="w-full" aria-hidden="true"></div>
+        )}
 
-        <a href={entry.data.prevSlug ? getPostUrlBySlug(entry.data.prevSlug) : "#"}
-           class:list={["w-full font-bold overflow-hidden active:scale-95", {"pointer-events-none": !entry.data.prevSlug}]}>
-            {entry.data.prevSlug && <div class="btn-card radius-xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-end gap-4">
-                <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-75">
-                    {entry.data.prevTitle}
+        {entry.data.prevSlug ? (
+            <a href={getPostUrlBySlug(entry.data.prevSlug)} class="w-full font-bold overflow-hidden active:scale-95">
+                <div class="btn-card radius-xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-end gap-4">
+                    <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-75">
+                        {entry.data.prevTitle}
+                    </div>
+                    <Icon name="material-symbols:chevron-right-rounded" class="icon-2xl text-[var(--primary)]" />
                 </div>
-                <Icon name="material-symbols:chevron-right-rounded" class="icon-2xl text-[var(--primary)]" />
-            </div>}
-        </a>
+            </a>
+        ) : (
+            <div class="w-full" aria-hidden="true"></div>
+        )}
     </div>
 
 </MainGridLayout>

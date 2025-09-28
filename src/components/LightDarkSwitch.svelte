@@ -2,7 +2,9 @@
 import { AUTO_MODE, DARK_MODE, LIGHT_MODE } from "@constants/constants.ts";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
-import Icon from "@iconify/svelte";
+// Use offline Icon component to avoid runtime fetches
+import "@/icons/register.ts";
+import Icon from "@iconify/svelte/dist/OfflineIcon.svelte";
 import { applyThemeToDocument, getStoredTheme, setTheme } from "@utils/setting-utils.ts";
 import { onMount } from "svelte";
 import type { LIGHT_DARK_MODE } from "@/types/config.ts";

@@ -1,7 +1,9 @@
 <script lang="ts">
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
-import Icon from "@iconify/svelte";
+// Use offline Icon component to avoid runtime fetches
+import "@/icons/register.ts";
+import Icon from "@iconify/svelte/dist/OfflineIcon.svelte";
 import { url } from "@utils/url-utils.ts";
 import { onMount } from "svelte";
 import type { SearchResult } from "@/global";
@@ -136,10 +138,15 @@ $: if (initialized && keywordMobile) {
       bg-[var(--btn-regular-bg)] hover:bg-[var(--btn-regular-bg-hover)] focus-within:bg-[var(--btn-regular-bg-hover)]
 ">
     <Icon icon="material-symbols:search" class="absolute icon-md pointer-events-none ml-3 transition my-auto text-30"></Icon>
-    <input placeholder="{i18n(I18nKey.search)}" bind:value={keywordDesktop} on:focus={() => search(keywordDesktop, true)}
-           class="transition-all pl-10 text-sm bg-transparent outline-0
-         h-full w-40 active:w-60 focus:w-60 text-50"
-    >
+    <input
+      id="search-desktop-input"
+      name="search"
+      aria-label={i18n(I18nKey.search)}
+      placeholder="{i18n(I18nKey.search)}"
+      bind:value={keywordDesktop}
+      on:focus={() => search(keywordDesktop, true)}
+      class="transition-all pl-10 text-sm bg-transparent outline-0 h-full w-40 active:w-60 focus:w-60 text-50"
+    />
 </div>
 
 <!-- toggle btn for phone/tablet view -->
@@ -157,10 +164,14 @@ top-20 left-4 md:left-[unset] right-4 shadow-2xl radius-xl p-2">
       bg-[var(--btn-regular-bg)] hover:bg-[var(--btn-regular-bg-hover)] focus-within:bg-[var(--btn-regular-bg-hover)]
   ">
         <Icon icon="material-symbols:search" class="absolute icon-md pointer-events-none ml-3 transition my-auto text-30"></Icon>
-        <input placeholder="Search" bind:value={keywordMobile}
-               class="pl-10 absolute inset-0 text-sm bg-transparent outline-0
-               focus:w-60 text-50"
-        >
+        <input
+          id="search-mobile-input"
+          name="search"
+          aria-label="Search"
+          placeholder="Search"
+          bind:value={keywordMobile}
+          class="pl-10 absolute inset-0 text-sm bg-transparent outline-0 focus:w-60 text-50"
+        />
     </div>
 
     <!-- search results -->

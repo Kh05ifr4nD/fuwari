@@ -120,6 +120,16 @@ export default defineConfig({
   },
   vite: {
     plugins: [],
+    server: {
+      headers: {
+        "X-Content-Type-Options": "nosniff",
+      },
+    },
+    preview: {
+      headers: {
+        "X-Content-Type-Options": "nosniff",
+      },
+    },
     build: {
       rollupOptions: {
         onwarn(warning, warn) {
